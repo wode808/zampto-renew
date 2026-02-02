@@ -70,7 +70,7 @@ def run_zampto():
             return
 
         # --- 6. 点击 View Server ---
-        print("[-] 寻找服务器按钮 (id=2711)...")
+        print("[-] 寻找服务器按钮 (id=3479)...")
         target_server_selector = 'a.server-btn[href*="id=3479"]'
         
         try:
@@ -86,7 +86,7 @@ def run_zampto():
         print("[-] 等待跳转服务器详情页...")
         server_page_loaded = False
         for i in range(20):
-            if "id=2711" in sb.get_current_url():
+            if "id=3479" in sb.get_current_url():
                 print("✅ 已进入服务器详情页")
                 server_page_loaded = True
                 break
