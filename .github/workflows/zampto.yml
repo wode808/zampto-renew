@@ -20,7 +20,7 @@ jobs:
           chmod +x gost-linux-amd64-2.11.5
           mv gost-linux-amd64-2.11.5 gost
           echo "启动 Gost 转发隧道..."
-          nohup ./gost -L http://:8080 -F socks5://fdeeda45:d68c995f5830@154.51.40.148:30551 > gost.log 2>&1 &
+          nohup ./gost -L http://:8080 -F socks5://N4MvUF3sgf:9Y5cPiQvdo@38.146.29.85:55555 > gost.log 2>&1 &
           sleep 3
           echo "测试本地代理连通性..."
           curl -x http://127.0.0.1:8080 https://api.ipify.org -v
