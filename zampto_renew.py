@@ -20,8 +20,8 @@ LOGIN_URL   = "https://auth.zampto.net/sign-in?app_id=bmhk6c8qdqxphlyscztgl"
 DOMAIN      = "dash.zampto.net"
 
 TARGET_SERVERS = [
-    {"id": "4480", "name": "Zampto JAVA"},
-    {"id": "4481", "name": "Zampto Python"},
+    {"id": "4480", "name": "java"},
+    {"id": "4481", "name": "python"},
 ]
 
 # ============================================================
