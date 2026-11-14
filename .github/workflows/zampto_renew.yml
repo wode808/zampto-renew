@@ -1,8 +1,6 @@
 name: Zampto-Renew
 on:
   workflow_dispatch:
-  #schedule:
-  #  - cron: '0 1 * * *'   # 北京时间 09:00（UTC+8 → UTC 01:00）
     
 jobs:
   run_zampto_renew:
@@ -52,7 +50,7 @@ jobs:
           nohup ./gost -L http://:8080 -F "$GOST_PROXY" > gost.log 2>&1 &
           sleep 3
           echo "✅ GOST 已启动，测试连通性..."
-          curl -s -x http://127.0.0.1:8080 https://api.ipify.org | sed 's/\([0-9]*\.[0-9]*\.\)[0-9]*\.[0-9]*/\1**.**/g'
+          curl -s -x http://127.0.0.1:8080 https://api.ipify.org | sed 's/\([0-9]*\.[0-9]*\.[0-9]*\.\)[0-9]*/\1**/g'
           
       - name: 🚀 运行续期脚本
         env:
@@ -60,6 +58,8 @@ jobs:
           ZAMPTO_ACCOUNT: ${{ secrets.ZAMPTO_ACCOUNT }}
           GOST_PROXY: ${{ secrets.GOST_PROXY }}
           TG_BOT: ${{ secrets.TG_BOT }}
+          CRON_JOB: ${{ secrets.CRON_JOB }}
+          NONECAP_KEY: ${{ secrets.NONECAP_KEY }}
         run: |
           xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24" python zampto_renew.py
       
